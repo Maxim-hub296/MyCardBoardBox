@@ -16,6 +16,3 @@ class Quotes(BaseModel):
 
 def create_tables():
     db.create_tables([Quotes])
-
-Quotes.get_or_create(quot="Любовь не бывает без грусти, но это приятней, чем грусть без любви",
-                     author='из к/ф "Покровские ворота"')

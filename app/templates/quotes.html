@@ -2,11 +2,36 @@
 
 {% block content %}
 
-<ul>
-  {% for i in quotes %}
-  <li>{{ i.quot }} - {{ i.author }}</li>
-  {% endfor %}
-</ul>
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <!-- Заголовок карточки -->
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Мои любимые цитаты</h3>
+        </div>
 
+        <!-- Тело карточки с прокручиваемым контентом -->
+        <div class="card-body" style="max-height: 60vh; overflow-y: auto;">
+            <div class="list-group list-group-flush">
+                {% for i in quotes %}
+                <div class="list-group-item">
+                    <blockquote class="blockquote mb-0">
+                        <p class="mb-2">«{{ i.quot }}»</p>
+                        <footer class="blockquote-footer mt-2">
+                            <cite title="{{ i.author }}">{{ i.author }}</cite>
+                        </footer>
+                    </blockquote>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Футер карточки с кнопкой -->
+        <div class="card-footer bg-light">
+            <a href="/add_quot" class="btn btn-success w-100">
+                <i class="bi bi-plus-circle me-2"></i>Добавить цитату
+            </a>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

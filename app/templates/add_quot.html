@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card shadow-lg mx-auto" style="max-width: 600px;">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0"><i class="bi bi-chat-quote me-2"></i>Новая цитата</h3>
+        </div>
+
+        <div class="card-body">
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+
+                <div class="mb-4">
+                    {{ form.quot.label(class="form-label fw-bold") }}
+                    {{ form.quot(class="form-control form-control-lg", placeholder="Введите текст цитаты") }}
+                    {% for error in form.quot.errors %}
+                    <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="mb-4">
+                    {{ form.author.label(class="form-label fw-bold") }}
+                    {{ form.author(class="form-control", placeholder="Автор цитаты") }}
+                    {% for error in form.author.errors %}
+                    <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="d-grid gap-2">
+                    {{ form.submit(class="btn btn-success btn-lg") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

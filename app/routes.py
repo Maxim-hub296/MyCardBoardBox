@@ -1,8 +1,7 @@
 from flask import render_template, redirect, request, url_for
 from flask_login import current_user, login_user, login_required
-from urllib.parse import urlsplit
 from app import app
-from app.forms import LoginForm
+from app.forms import LoginForm, AddQuotForm
 from app.database import Quotes
 from app.user import User
 @app.route("/")
@@ -26,7 +25,17 @@ def login():
 
 
 @app.route("/quotes")
-@login_required
 def quotes():
 
     return render_template("quotes.html", title_name="Цитаты",quotes=Quotes.select())
+
+@app.route("/add_quot", methods=['GET', 'POST'])
+@login_required
+def add_quotes():
+    form = AddQuotForm()
+    if form.validate_on_submit():
+        text, author = form.quot.data, form.author.data
+        Quotes.get_or_create(quot=text, author=author)
+        return redirect('/quotes')
+    return render_template('add_quot.html', form=form)
+
