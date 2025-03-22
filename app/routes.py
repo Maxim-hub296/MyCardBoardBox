@@ -1,10 +1,7 @@
-import flask
 from flask import render_template
-from flask.views import MethodView
+from app import app
 
+@app.route("/")
+def about():
+    return render_template("about.html", title_name="О нас")
 
-class AboutView(MethodView):
-    """ Класс представления страницы "О нас" """
-    def get(self):
-        """ Метод обрабатывающий GET-запрос. Возвращает шаблон страницы about.html """
-        return render_template('about.html', title_name="О сайте")
