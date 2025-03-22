@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Заголовок с градиентом -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold gradient-text mb-3"
+            style="background: linear-gradient(45deg, #4b6cb7, #182848);">
+            Фотогалерея
+        </h1>
+        <p class="lead text-muted">Здесь собраны моменты моей жизни</p>
+    </div>
+
+    <!-- Галерея -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for image in image_list %}
+        <div class="col">
+            <div class="card h-100 shadow-lg border-0 gallery-item">
+                <img src="{{ url_for('static', filename='images/' + image) }}"
+                     class="card-img-top img-fluid"
+                     alt="{{ image }}"
+                     loading="lazy">
+                <div class="card-img-overlay d-flex align-items-end justify-content-center">
+                    <div class="image-caption bg-dark bg-opacity-75 p-2 rounded text-center w-100">
+                        <small class="text-white">{{ image | replace('_', ' ') | replace('-', ':') }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .gradient-text {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .gallery-item {
+        transition: all 0.3s ease;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 15px !important;
+    }
+
+    .gallery-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .gallery-item img {
+        transition: transform 0.3s ease;
+        object-fit: cover;
+        height: 300px;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.05);
+    }
+
+    .image-caption {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .image-caption {
+        opacity: 1;
+    }
+</style>
+{% endblock %}

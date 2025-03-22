@@ -4,6 +4,8 @@ from app import app
 from app.forms import LoginForm, AddQuotForm
 from app.database import Quotes
 from app.user import User
+import os
+
 @app.route("/")
 def about():
     return render_template("about.html", title_name="О сайте")
@@ -46,3 +48,11 @@ def contact():
 @app.route('/about_me')
 def about_me():
     return render_template("about_me.html", title_name='Обо мне')
+
+@app.route('/gallery')
+def gallery():
+    # В функции gallery() перед получением списка файлов
+    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+    image_folder = app.config['UPLOAD_FOLDER']
+    image_list = [img for img in os.listdir(image_folder) if img.lower().endswith(('.png', '.jpg', '.jpeg'))]
+    return render_template('gallery.html', image_list=image_list)
