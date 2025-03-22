@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+    <!-- Заголовок с градиентом -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold gradient-text" style="background: linear-gradient(45deg, #4b6cb7, #182848); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Рад, что заинтересовал вас!
+        </h1>
+    </div>
+
+    <!-- Карточки контактов -->
+    <div class="row g-4 justify-content-center">
+        <!-- Телеграм -->
+        <div class="col-md-8 col-lg-6">
+            <a href="https://t.me/Wanderer2754" target="_blank" class="card contact-card hover-effect text-decoration-none">
+                <div class="card-body d-flex align-items-center py-4">
+                    <div class="icon-wrapper bg-primary rounded-circle p-3 me-3">
+                        <i class="bi bi-telegram fs-2 text-white"></i>
+                    </div>
+                    <div>
+                        <h5 class="card-title mb-1 text-dark">Телеграм</h5>
+                        <p class="text-muted mb-0">@Wanderer2754</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-8 col-lg-6">
+            <div class="card contact-card hover-effect">
+                <div class="card-body d-flex align-items-center py-4">
+                    <div class="icon-wrapper bg-danger rounded-circle p-3 me-3">
+                        <i class="bi bi-envelope-at fs-2 text-white"></i>
+                    </div>
+                    <div>
+                        <h5 class="card-title mb-1 text-dark">Электронная почта</h5>
+                        <p class="text-muted mb-0">maxsavikin@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GitHub -->
+        <div class="col-md-8 col-lg-6">
+            <a href="https://github.com/Maxim-hub296" target="_blank" class="card contact-card hover-effect text-decoration-none">
+                <div class="card-body d-flex align-items-center py-4">
+                    <div class="icon-wrapper bg-dark rounded-circle p-3 me-3">
+                        <i class="bi bi-github fs-2 text-white"></i>
+                    </div>
+                    <div>
+                        <h5 class="card-title mb-1 text-dark">GitHub</h5>
+                        <p class="text-muted mb-0">/Maxim-hub296</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Pinterest -->
+        <div class="col-md-8 col-lg-6">
+            <a href="https://ru.pinterest.com/maxsavikin/" target="_blank" class="card contact-card hover-effect text-decoration-none">
+                <div class="card-body d-flex align-items-center py-4">
+                    <div class="icon-wrapper bg-pinterest rounded-circle p-3 me-3">
+                        <i class="bi bi-pinterest fs-2 text-white"></i>
+                    </div>
+                    <div>
+                        <h5 class="card-title mb-1 text-dark">Pinterest</h5>
+                        <p class="text-muted mb-0">/maxsavikin</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .gradient-text {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .contact-card {
+        border: none;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .hover-effect:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .icon-wrapper {
+        transition: transform 0.3s ease;
+    }
+
+    .contact-card:hover .icon-wrapper {
+        transform: scale(1.1);
+    }
+
+    .bg-pinterest {
+        background-color: #e60023 !important;
+    }
+</style>
+
+{% endblock %}

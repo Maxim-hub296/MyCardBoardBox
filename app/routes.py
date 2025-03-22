@@ -37,5 +37,8 @@ def add_quotes():
         text, author = form.quot.data, form.author.data
         Quotes.get_or_create(quot=text, author=author)
         return redirect('/quotes')
-    return render_template('add_quot.html', form=form)
+    return render_template('add_quot.html', title_name="добавление цитаты",form=form)
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html', title_name='Обратная связь')
