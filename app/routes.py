@@ -6,7 +6,7 @@ from app.database import Quotes
 from app.user import User
 @app.route("/")
 def about():
-    return render_template("about.html", title_name="О нас")
+    return render_template("about.html", title_name="О сайте")
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -42,3 +42,7 @@ def add_quotes():
 @app.route('/contact')
 def contact():
     return render_template('contact.html', title_name='Обратная связь')
+
+@app.route('/about_me')
+def about_me():
+    return render_template("about_me.html", title_name='Обо мне')

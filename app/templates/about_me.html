@@ -1,0 +1,76 @@
+
+ {% extends "base.html" %}
+
+{% block content %}
+
+<div class="container my-5">
+    <!-- Мечты -->
+    <div class="card shadow-lg mb-4 border-0 bg-gradient-primary" style="background: linear-gradient(135deg, #4b6cb7, #182848);">
+        <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-stars fs-1 text-warning me-3"></i>
+                <h2 class="card-title text-light mb-0">Мечты</h2>
+            </div>
+            <p class="card-text text-light lead">
+                Моей главной мечтой всегда было и будет создание крепкой семьи.
+                С большим удовольствием я посвящу себя заботе и обеспечению своих близких.
+            </p>
+        </div>
+    </div>
+
+    <!-- Увлечения -->
+    <div class="card shadow-lg mb-4 border-0 bg-gradient-info" style="background: linear-gradient(45deg, #2c3e50, #3498db);">
+        <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-code-square fs-1 text-success me-3"></i>
+                <h2 class="card-title text-light mb-0">Увлечения</h2>
+            </div>
+            <p class="card-text text-light lead">
+                Моим главным увлечением (как ты уже мог догадаться, ведь сайт я написал сам!)
+                является программирование. Попробовав однажды, я не могу оторваться по сей день,
+                и думаю, что так будет всегда. Программирование покорило меня сразу же -
+                это была любовь с первого взгляда.
+            </p>
+        </div>
+    </div>
+
+    <!-- Псевдонимы -->
+    <div class="card shadow-lg border-0 bg-gradient-danger" style="background: linear-gradient(45deg, #e74c3c, #c0392b);">
+        <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-incognito fs-1 text-light me-3"></i>
+                <h2 class="card-title text-light mb-0">Псевдонимы</h2>
+            </div>
+            <p class="card-text text-light lead">
+                Если ты вдруг не заметил или не услышал моего настоящего имени - это не значит,
+                что меня нет! Внимательно проверяй объекты с именами:
+                <span class="badge bg-warning text-dark m-1">Странник</span>
+                <span class="badge bg-warning text-dark m-1">Wanderer</span>
+                <span class="badge bg-warning text-dark m-1">Арсен Люпен</span>
+                <span class="badge bg-warning text-dark m-1">Джокер</span>
+                <span class="badge bg-warning text-dark m-1">Трикстер</span>.
+                И на всякий случай проверяй <span class="badge bg-warning text-dark">Шарлотт</span> -
+                это тоже могу быть я :)
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border-radius: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .lead {
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+</style>
+
+{% endblock %}
