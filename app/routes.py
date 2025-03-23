@@ -6,9 +6,11 @@ from app.database import Quotes
 from app.user import User
 import os
 
+
 @app.route("/")
 def about():
     return render_template("about.html", title_name="О сайте")
+
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -28,8 +30,8 @@ def login():
 
 @app.route("/quotes")
 def quotes():
+    return render_template("quotes.html", title_name="Цитаты", quotes=Quotes.select())
 
-    return render_template("quotes.html", title_name="Цитаты",quotes=Quotes.select())
 
 @app.route("/add_quot", methods=['GET', 'POST'])
 @login_required
@@ -39,15 +41,18 @@ def add_quotes():
         text, author = form.quot.data, form.author.data
         Quotes.get_or_create(quot=text, author=author)
         return redirect('/quotes')
-    return render_template('add_quot.html', title_name="добавление цитаты",form=form)
+    return render_template('add_quot.html', title_name="добавление цитаты", form=form)
+
 
 @app.route('/contact')
 def contact():
     return render_template('contact.html', title_name='Обратная связь')
 
+
 @app.route('/about_me')
 def about_me():
     return render_template("about_me.html", title_name='Обо мне')
+
 
 @app.route('/gallery')
 def gallery():
@@ -55,11 +60,18 @@ def gallery():
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
     image_folder = app.config['UPLOAD_FOLDER']
     image_list = [img for img in os.listdir(image_folder) if img.lower().endswith(('.png', '.jpg', '.jpeg'))]
-    return render_template('gallery.html', title_name='Пейзажи',image_list=image_list)
+    return render_template('gallery.html', title_name='Пейзажи', image_list=image_list)
+
 
 @app.route('/soul_card')
 def soul_card():
     return render_template('soul_card.html', title_name="Карта души")
+
+
 @app.route('/schedule')
 def schedule():
     return render_template('schedule.html', title_name='Расписание')
+@app.route('/special_music')
+def special_music():
+    return render_template('special_music.html', title_name='Особая музыка')
+

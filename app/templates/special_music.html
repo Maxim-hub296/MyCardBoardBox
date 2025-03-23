@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Заголовок -->
+            <div class="text-center mb-5">
+                <h1 class="display-5 fw-bold" style="color: #d8a7b1;">
+                    <i class="bi bi-vinyl-fill me-3"></i>Мой саундтрек
+                </h1>
+                <p class="text-muted">Музыка, которая резонирует с моей душой</p>
+            </div>
+
+            <!-- Список песен -->
+            <div class="song-list">
+                <div class="card mb-4 bg-dark text-white border-0 shadow-lg">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #b48ea9;">
+                            <i class="bi bi-music-note-beamed me-2"></i>
+                            Сплин - Мороз по коже
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="card mb-4 bg-dark text-white border-0 shadow-lg">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #b48ea9;">
+                            <i class="bi bi-music-note-beamed me-2"></i>
+                            Сплин - Рай в шалаше
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="card mb-4 bg-dark text-white border-0 shadow-lg">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #b48ea9;">
+                            <i class="bi bi-music-note-beamed me-2"></i>
+                            Сплин - Танцуй
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="card mb-4 bg-dark text-white border-0 shadow-lg">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #b48ea9;">
+                            <i class="bi bi-music-note-beamed me-2"></i>
+                            Ляпис Трубецкой - Космонавты
+                        </h5>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Цитата -->
+            <div class="text-center mt-5 p-4 rounded" style="background: rgba(180, 142, 169, 0.1);">
+                <blockquote class="blockquote mb-0" style="color: #d8a7b1;">
+                    <i class="bi bi-quote fs-1"></i>
+                    <p class="mb-0">Музыка - это стенография чувств</p>
+                    <footer class="blockquote-footer mt-2" style="color: #8c7a7a !important;">
+                        Лев Толстой
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .song-list .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: 4px solid #b48ea9;
+    }
+    
+    .song-list .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
+    }
+    
+    .bi-vinyl-fill {
+        font-size: 2.5rem;
+    }
+</style>
+{% endblock %}
