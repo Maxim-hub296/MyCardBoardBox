@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h2 class="display-5 fw-bold mb-4 text-primary">
+                Карта моей души
+            </h2>
+
+            <!-- Контейнер для карты -->
+            <div class="position-relative mx-auto" style="width: 300px; height: 300px;">
+                <!-- Сектора -->
+                <div class="position-absolute top-0 start-0 w-50 h-50 bg-danger rounded-top-start overflow-hidden"
+                     data-bs-toggle="tooltip"
+                     title="Нет ничего страшнее одиночества">
+                    <div class="d-flex flex-column justify-content-center h-100 p-3 text-white">
+                        <i class="bi bi-cloud-lightning-rain fs-3"></i>
+                        <span class="mt-2">Страх</span>
+                    </div>
+                </div>
+
+                <div class="position-absolute top-0 end-0 w-50 h-50 bg-purple rounded-top-end overflow-hidden"
+                     data-bs-toggle="tooltip"
+                     title="Полюбить однажды — и любить, пока бьётся сердце">
+                    <div class="d-flex flex-column justify-content-center h-100 p-3 text-white">
+                        <i class="bi bi-stars fs-3"></i>
+                        <span class="mt-2">Мечта</span>
+                    </div>
+                </div>
+
+                <div class="position-absolute bottom-0 start-0 w-50 h-50 bg-success rounded-bottom-start overflow-hidden"
+                     data-bs-toggle="tooltip"
+                     title="Посвящать время своему ремеслу">
+                    <div class="d-flex flex-column justify-content-center h-100 p-3 text-white">
+                        <i class="bi bi-code-square fs-3"></i>
+                        <span class="mt-2">Радость</span>
+                    </div>
+                </div>
+
+                <div class="position-absolute bottom-0 end-0 w-50 h-50 bg-info rounded-bottom-end overflow-hidden"
+                     data-bs-toggle="tooltip"
+                     title="Мечтать и планировать">
+                    <div class="d-flex flex-column justify-content-center h-100 p-3 text-white">
+                        <i class="bi bi-lightbulb fs-3"></i>
+                        <span class="mt-2">Вдохновение</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-purple {
+        background-color: #9b59b6 !important;
+    }
+
+    [data-bs-toggle="tooltip"] {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    [data-bs-toggle="tooltip"]:hover {
+        transform: scale(1.05);
+        z-index: 2;
+    }
+</style>
+
+<script>
+    // Активируем всплывающие подсказки
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
+{% endblock %}

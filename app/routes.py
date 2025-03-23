@@ -55,4 +55,8 @@ def gallery():
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
     image_folder = app.config['UPLOAD_FOLDER']
     image_list = [img for img in os.listdir(image_folder) if img.lower().endswith(('.png', '.jpg', '.jpeg'))]
-    return render_template('gallery.html', image_list=image_list)
+    return render_template('gallery.html', title_name='Пейзажи',image_list=image_list)
+
+@app.route('/soul_card')
+def soul_card():
+    return render_template('soul_card.html', title_name="Карта души")
