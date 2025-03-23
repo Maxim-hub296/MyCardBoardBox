@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+            <thead class="table-primary">
+                <tr>
+                    <th>Понедельник</th>
+                    <th>Вторник</th>
+                    <th>Среда</th>
+                    <th>Четверг</th>
+                    <th>Пятница</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Школа (8:00 - 16:00)</td>
+                    <td>Школа (8:00 - 16:00)</td>
+                    <td>Школа (8:00 - 14:10)</td>
+                    <td>Школа (8:00 - 13:10)</td>
+                    <td>Школа (8:00 - 16:00)</td>
+                </tr>
+                <tr>
+                    <td>Домашка (16:30 - 17:00)</td>
+                    <td>Домашка (16:30 - 17:00)</td>
+                    <td>Домашка (15:00 - 15:40)</td>
+                    <td>Домашка (14:00 - 14:30)</td>
+                    <td>Домашка (16:30 - 17:00)</td>
+                </tr>
+                <tr>
+                    <td>Свободное время (17:00 - 21:00)</td>
+                    <td>Свободное время (17:00 - 21:00)</td>
+                    <td>Свободное время (16:00 - 21:00)</td>
+                    <td>Свободное время (15:00 - 21:00)</td>
+                    <td>Свободное время (17:00 - 21:00)</td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="table-info text-center">
+                        Подготовка ко сну (21:00 - 21:30)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="table-success text-center">
+                        Чтение (22:00 - 23:00)
+                    </td>
+                </tr>
+            </tbody>
+             <tfoot>
+                <tr>
+                    <td colspan="5" class="alert alert-warning text-center small">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        Внимание! Расписание точно на 90%.
+                        Рекомендую ориентироваться на эти временные промежутки
+                        для связи со мной
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<style>
+    .table td {
+        min-width: 150px;
+    }
+    .table-hover tbody tr:hover {
+        background-color: rgba(75, 108, 183, 0.1);
+    }
+</style>
+{% endblock %}

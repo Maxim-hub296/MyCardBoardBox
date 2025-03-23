@@ -60,3 +60,6 @@ def gallery():
 @app.route('/soul_card')
 def soul_card():
     return render_template('soul_card.html', title_name="Карта души")
+@app.route('/schedule')
+def schedule():
+    return render_template('schedule.html', title_name='Расписание')
