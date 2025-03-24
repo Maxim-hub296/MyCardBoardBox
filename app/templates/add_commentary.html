@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-dark text-white py-3">
+                    <h2 class="mb-0">
+                        <i class="bi bi-pencil-square me-2"></i>
+                        Оставьте свой след
+                    </h2>
+                </div>
+
+                <div class="card-body p-4">
+                    <form action="" method="post" novalidate>
+                        {{ form.hidden_tag() }}
+
+                        <div class="mb-4">
+                            <label for="{{ form.nickname.id }}" class="form-label small text-muted">
+                                <i class="bi bi-person-badge me-2"></i>
+                                {{ form.nickname.label.text }}
+                            </label>
+                            {{ form.nickname(class="form-control form-control-lg", placeholder="Ваш псевдоним") }}
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="{{ form.commentary.id }}" class="form-label small text-muted">
+                                <i class="bi bi-chat-text me-2"></i>
+                                {{ form.commentary.label.text }}
+                            </label>
+                            {{ form.commentary(class="form-control", rows="4", placeholder="Ваши мысли...") }}
+                        </div>
+
+                        <div class="d-grid gap-2 mt-4">
+                            {{ form.submit(class="btn btn-purple btn-lg") }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .form-control {
+        border: 2px solid #b48ea9;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #9b59b6;
+        box-shadow: 0 0 0 0.25rem rgba(155, 89, 182, 0.25);
+    }
+
+    .btn-purple {
+        background: linear-gradient(45deg, #9b59b6, #6b456b);
+        color: white;
+        border: none;
+        transition: transform 0.3s ease;
+    }
+
+    .btn-purple:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+    }
+</style>
+{% endblock %}

@@ -40,6 +40,7 @@
         transition: background 0.3s ease;
     }
 
+
     @media (max-width: 768px) {
         footer {
             background: rgba(107, 69, 107, 0.98) !important;
@@ -51,9 +52,9 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-<nav class="navbar navbar-expand-lg navbar-custom"> <!-- Изменено на light -->
+<nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container-fluid">
-        <a class="navbar-brand text-dark" href="/">О сайте</a> <!-- Добавлен text-dark -->
+        <a class="navbar-brand text-dark" href="/">О сайте</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -69,15 +70,24 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="/schedule">Расписание</a>
+                </li> <!-- Добавлен закрывающий тег -->
+
                 <li class="nav-item">
                     <a class="nav-link" href="/about_me">Обо мне</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/soul_card">Карта души</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/special_music">Особая музыка</a>
                 </li>
+
+                <li class="nav-item"> <!-- Исправлено с nav-link на nav-item -->
+                    <a class="nav-link" href="/commentary">Комментарии</a>
+                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Обратная связь</a>
                 </li>
@@ -85,6 +95,7 @@
         </div>
     </div>
 </nav>
+
 
 <div class="container my-4">
     {% block content %}{% endblock %}

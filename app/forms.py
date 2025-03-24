@@ -10,3 +10,8 @@ class AddQuotForm(FlaskForm):
     quot = StringField('Введите текст цитаты', validators=[DataRequired()])
     author = StringField("Введите автора цитаты", validators=[DataRequired()])
     submit = SubmitField('Сохранить')
+
+class AddCommentaryForm(FlaskForm):
+    nickname = StringField('Введите ваше имя', validators=[DataRequired()])
+    commentary = StringField('Введите ваш комментарий', validators=[DataRequired()])
+    submit = SubmitField('Добавить')

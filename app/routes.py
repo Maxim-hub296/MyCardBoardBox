@@ -1,9 +1,10 @@
 from flask import render_template, redirect, request, url_for
 from flask_login import current_user, login_user, login_required
 from app import app
-from app.forms import LoginForm, AddQuotForm
-from app.database import Quotes
+from app.forms import LoginForm, AddQuotForm, AddCommentaryForm
+from app.database import Quotes, Commentary
 from app.user import User
+from datetime import datetime
 import os
 
 
@@ -71,7 +72,25 @@ def soul_card():
 @app.route('/schedule')
 def schedule():
     return render_template('schedule.html', title_name='Расписание')
+
+
 @app.route('/special_music')
 def special_music():
     return render_template('special_music.html', title_name='Особая музыка')
 
+
+@app.route('/commentary')
+def commentary():
+    return render_template('commentary.html', title_name='Комментарии', commentaries=Commentary.select())
+
+
+@app.route('/add_commentary', methods=['GET', 'POST'])
+def add_commentary():
+    form = AddCommentaryForm()
+    if form.validate_on_submit():
+        nickname, commentary = form.nickname.data, form.commentary.data
+        today = datetime.now()
+        data = f"{today.day}.{today.month} {today.hour}:{today.minute}"
+        Commentary.get_or_create(nickname=nickname, commentary=commentary, data=data)
+        return redirect('/commentary')
+    return render_template('add_commentary.html', form=form, title_name='Добавление комментариев')

@@ -14,5 +14,15 @@ class Quotes(BaseModel):
     quot = CharField(unique=True)
     author = CharField()
 
+class Commentary(BaseModel):
+    """Модель таблицы с комментариями"""
+    nickname = CharField()
+    commentary = CharField()
+    data = CharField()
+
+
 def create_tables():
-    db.create_tables([Quotes])
+    db.create_tables([Quotes, Commentary])
+
+def drop_tables():
+    db.drop_tables(Commentary)
