@@ -1,13 +1,70 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Введите мастер-пароль, чтобы внести изменения</h1>
-<form action="{{ url_for('login') }}?next={{ request.args.get('next', '') }}" method="post" novalidate>
-    {{ form.hidden_tag() }}
-    <p>
-      {{ form.password.label }}<br>
-      {{ form.password(size=32) }}
-    </p>
-    <p>{{ form.submit() }}</p>
-  </form>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-dark text-white py-4">
+                    <h2 class="mb-0 text-center">
+                        <i class="bi bi-shield-lock me-2"></i>
+                        Секретный доступ
+                    </h2>
+                </div>
+
+                <div class="card-body p-4">
+                    <form action="{{ url_for('login') }}?next={{ request.args.get('next', '') }}" method="post" novalidate>
+                        {{ form.hidden_tag() }}
+
+                        <div class="mb-4">
+                            <label for="{{ form.password.id }}" class="form-label small text-muted">
+                                <i class="bi bi-key me-2"></i>
+                                {{ form.password.label.text }}
+                            </label>
+                            {{ form.password(class="form-control form-control-lg border-2", placeholder="••••••••") }}
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            {{ form.submit(class="btn btn-danger btn-lg w-100") }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <p class="text-muted small">
+                    <i class="bi bi-exclamation-circle me-2"></i>
+                    Пароль известен только избранным
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .form-control {
+        border-color: #b48ea9 !important;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 0 0.25rem rgba(180, 142, 169, 0.25);
+        border-color: #d8a7b1 !important;
+    }
+
+    .btn-danger {
+        background: linear-gradient(45deg, #9b59b6, #e74c3c);
+        border: none;
+        transition: transform 0.3s ease;
+    }
+
+    .btn-danger:hover {
+        transform: translateY(-2px);
+    }
+</style>
 {% endblock %}
